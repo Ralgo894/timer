@@ -50,7 +50,7 @@
       const timeElement = document.getElementById('time');
       const textElement = document.getElementById('text');
 
-      let flag = '集中'; // 集中=0 休憩=1
+      let flag = '集中';
 
       let times = prompt('集中:休憩の時間を入力してください。', '25 5');
 
@@ -91,7 +91,7 @@
 
       const alarm = () => {
         let text = 'お疲れ様です。休憩してください。';
-        if (flag == 1) text = '休憩終了です。頑張りましょう。';
+        if (flag == '休憩') text = '休憩終了です。頑張りましょう。';
 
         Push.create(text);
       };
