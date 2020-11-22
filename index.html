@@ -4,35 +4,35 @@
     <meta charset="utf-8">
     <title>集中タイマー</title>
     <style media="screen">
-    body, div, p {
-      margin: 0;
-    }
+      body, div, p {
+        margin: 0;
+      }
 
-    .center {
-      width: 100vw;
-      height: 100vh;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-    }
-    .center div {
-      margin: auto;
-    }
+      .center {
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+      .center div {
+        margin: auto;
+      }
 
-    .syutyu {
-      color: #2196F3;
-    }
-    .kyukei {
-      color: #FF9800;
-    }
+      .syutyu {
+        color: #2196F3;
+      }
+      .kyukei {
+        color: #FF9800;
+      }
 
-    #text {
-      font-size: 80px;
-    }
-    #time {
-      line-height: 200px;
-      font-size: 260px;
-    }
+      #text {
+        font-size: 80px;
+      }
+      #time {
+        line-height: 200px;
+        font-size: 260px;
+      }
     </style>
   </head>
   <body>
@@ -94,6 +94,16 @@
         if (flag == '休憩') text = '休憩終了です。頑張りましょう。';
 
         Push.create(text);
+
+        ringSound(); // 通知音を鳴らす
+      };
+
+      // 通知音を鳴らす
+      const ringSound = () => {
+        const audio = document.createElement('audio');
+        audio.src = './通知音.mp3';
+
+        audio.play();
       };
 
       const zeroPadding = (NUM, LEN) => {
